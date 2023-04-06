@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  squish:
+    image: sawjan/squish:fedora37-xfce4
+    # ports:
+    #   - 5900:5901
+    environment:
+      LICENSEKEY: squish.owncloud.works:49345
+      CLIENT_REPO: /client
+      MIDDLEWARE_URL: http://localhost:3000
+      BACKEND_HOST: http://localhost/core
+      SERVER_INI: /client/test/gui/reports/server.ini
+      GUI_TEST_REPORT_DIR: /home/headless
+    user: 0:0
+    volumes:
+      - /mnt/workspace/owncloud/client:/client
+    # network_mode: 'host'
